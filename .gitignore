@@ -1,0 +1,13 @@
+# Datos y correcciones (no subir información institucional)
+*.xlsx
+*.xlsm
+*.csv
+*.correcciones.json
+*.pdf
+
+# Python / PyInstaller
+__pycache__/
+*.pyc
+build/
+dist/
+*.spec

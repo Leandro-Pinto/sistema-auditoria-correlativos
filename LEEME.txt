@@ -1,0 +1,56 @@
+SISTEMA DE AUDITORÍA DE CORRELATIVOS – DOCUMENTOS DE GESTIÓN
+=============================================================
+
+REQUISITOS
+- Windows 10 u 11.
+- Python 3.9 o superior (https://www.python.org/downloads/).
+  Durante la instalación marque «Add Python to PATH».
+
+USO RÁPIDO
+1. Descomprima la carpeta en su PC (por ejemplo en Documentos).
+2. Doble clic en «Iniciar_Sistema.bat».
+   La primera vez instala automáticamente las librerías openpyxl y reportlab.
+3. Botón «Abrir Excel…» y elija su archivo (ej. RER1.xlsx).
+   El archivo debe tener encabezados: id, Tipo de norma, Título.
+
+CREAR UN .EXE (opcional)
+- Doble clic en «Crear_EXE.bat». Se genera dist\SistemaAuditoria.exe,
+  que funciona en cualquier PC con Windows sin instalar Python.
+- Windows SmartScreen puede advertir que el programa es desconocido:
+  elija «Más información» > «Ejecutar de todas formas».
+
+PESTAÑAS
+- Panel: resumen por año (registros, último N°, faltantes, repetidos,
+  % completitud). Doble clic en un año para auditarlo.
+- Auditoría por año: secuencia del 1 al último número. Los faltantes
+  salen en rojo y en la lista de la derecha (botón «Copiar lista»).
+- Por revisar: títulos sin número, sin año, con año deducido o con
+  formato incorrecto. Doble clic para corregir.
+- Datos: búsqueda y filtros sobre todos los registros. Doble clic
+  para corregir cualquier registro.
+
+CORRECCIONES
+Se guardan en «<nombre del Excel>.correcciones.json» junto al Excel.
+El Excel original nunca se modifica. Si vuelve a abrir el mismo
+archivo (o una versión actualizada con el mismo nombre), las
+correcciones se aplican solas.
+
+REPORTE EXCEL
+«Exportar reporte Excel» genera un libro con: Resumen, Faltantes,
+Por revisar, Todos (con los faltantes insertados) y una hoja por año.
+
+INFORME PDF (A4 horizontal)
+«Exportar informe PDF» pide la entidad, el responsable y los años a
+incluir (se recuerdan para la próxima vez). El informe contiene:
+  1. Portada.
+  2. Resumen ejecutivo con indicadores y gráficos de faltantes y
+     completitud por año.
+  3. Cuadro consolidado por año con nivel de riesgo
+     (bajo: desde 98% de completitud; medio: 90% a 98%; alto: < 90%).
+  4. Una sección por año: indicadores, gráfico del estado de la
+     secuencia, gráfico de faltantes por tramo de numeración,
+     hallazgo, números faltantes y repetidos (en rangos) y
+     observaciones de registro.
+  5. Conclusiones, recomendaciones, criterios aplicados y firmas.
+Opcional: «Incluir detalle completo de la secuencia» agrega, por año,
+la lista de todos los números con su estado.
